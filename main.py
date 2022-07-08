@@ -17,9 +17,13 @@ setup(bot)
             description="仮想通貨", 
             required=True,
             choices=[
-        interactions.Choice(name="btc", value="bitcoin"),
-        interactions.Choice(name="ltc", value="litecoin"),
-        interactions.Choice(name="eth", value="ethereum")
+        interactions.Choice(name="BTC", value="bitcoin"),
+        interactions.Choice(name="LTC", value="litecoin"),
+        interactions.Choice(name="ETH", value="ethereum"),
+        interactions.Choice(name="XRP", value="ripple"),
+        interactions.Choice(name="USDT", value="tether"),
+        interactions.Choice(name="ADA", value="cardano"),
+        interactions.Choice(name="MONA", value="monacoin")
             ], 
         ),
     ],
@@ -44,6 +48,22 @@ async def chart(ctx: interactions.CommandContext, coin:str):
     elif coin == "ethereum":
         jma_icon = "https://media.discordapp.net/attachments/991686407787659324/993090976488902686/unknown.png?width=641&height=641"
         jma_color = 0x8c8c8c
+
+    elif coin == "ripple":
+        jma_icon = "https://media.discordapp.net/attachments/991686407787659324/993126277785591848/ripple.png"
+        jma_color = 0x00aae4
+
+    elif coin == "tether":
+        jma_icon = "https://media.discordapp.net/attachments/991686407787659324/993126262543482979/tethericon.png"
+        jma_color = 0x26a17b
+
+    elif coin == "cardano":
+        jma_icon = "https://media.discordapp.net/attachments/991686407787659324/993126277542318171/cardano.png"
+        jma_color = 0x1e5cb1
+
+    elif coin == "monacoin":
+        jma_icon = "https://media.discordapp.net/attachments/991686407787659324/993126293476479066/Monacoin.png"
+        jma_color = 0xad9869
 
     embed=interactions.Embed(title=f"{jma_name}'s chart", color=jma_color)
     embed.set_thumbnail(url=jma_icon)
